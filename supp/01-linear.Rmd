@@ -1,0 +1,174 @@
+# Linear morphometrics
+
+```{r load packages 3, echo=TRUE}
+# install required analysis packages
+#devtools::install_github("tidyverse/tidyverse")
+#devtools::install_github("mlcollyer/RRPP")
+#devtools::install_github("kassambara/ggpubr")
+#devtools::install_github("sinhrks/ggfortify")
+#devtools::install_github("daattali/ggExtra")
+# load libraries
+library(here)
+library(tidyverse)
+library(RRPP)
+library(ggpubr)
+library(ggfortify)
+library(cluster)
+library(wesanderson)
+library(ggExtra)
+```
+
+## Read data and define variables
+
+```{r setwd ld define variables 3, echo=TRUE}
+# read data
+data <- read.csv("qdata.csv", header = TRUE, as.is=TRUE)
+
+# define variables
+maxl <- data$maxl # maximum length
+maxw <- data$maxw # maximum width
+maxth <- data$maxth # maximum thickness
+maxstl <- data$maxstl # maximum stem length
+maxstw <- data$maxstw # maximum stem width
+raw.mat <- data$raw.mat # raw material
+```
+
+## Boxplots for _variable_ by _raw material_
+
+```{r boxraw.mat, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Boxplots for maximum length, width, thickness, stem length, and stem width for Perdiz arrow points."}
+# boxplot of maximum length ~ raw.mat
+raw.matmaxl <- ggplot(data, aes(x = raw.mat, y = maxl, color = raw.mat)) + 
+  geom_boxplot() +
+  geom_dotplot(binaxis = 'y',stackdir = 'center',dotsize = 0.3) +
+  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  theme(legend.position = "none") +
+  labs(x = 'Raw Material', y = 'MaxL')
+
+# boxplot of maximum width ~ raw.mat
+raw.matmaxw <- ggplot(data, aes(x = raw.mat, y = maxw, color = raw.mat)) + 
+  geom_boxplot() +
+  geom_dotplot(binaxis = 'y',stackdir = 'center',dotsize = 0.3) +
+  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  theme(legend.position = "none") +
+  labs(x = 'Raw Material', y = 'MaxW')
+
+# boxplot of maximum thickness ~ raw.mat
+raw.matmaxth <- ggplot(data, aes(x = raw.mat, y = maxth, color = raw.mat)) + 
+  geom_boxplot() +
+  geom_dotplot(binaxis = 'y',stackdir = 'center',dotsize = 0.3) +
+  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  theme(legend.position = "none") +
+  labs(x = 'Raw Material', y = 'MaxTh')
+
+# boxplot of stem length ~ raw.mat
+raw.matmaxstl <- ggplot(data, aes(x = raw.mat, y = maxstl, color = raw.mat)) + 
+  geom_boxplot() +
+  geom_dotplot(binaxis = 'y',stackdir = 'center',dotsize = 0.3) +
+  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  theme(legend.position = "none") +
+  labs(x = 'Raw Material', y = 'StemL')
+
+# boxplot of stem width ~ raw.mat
+raw.matmaxstw <- ggplot(data, aes(x = raw.mat, y = maxstw, color = raw.mat)) + 
+  geom_boxplot() +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
+  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  theme(legend.position = "none") +
+  labs(x = 'Raw Material', y = 'StemW')
+
+# render figure
+raw.matfigure <- ggarrange(raw.matmaxl, raw.matmaxw, raw.matmaxth, raw.matmaxstl, raw.matmaxstw,
+                  labels = c("a","b","c","d","e"),
+                  ncol = 2, nrow = 3)
+              
+# plot figure
+raw.matfigure
+```
+
+## Principal Components Analysis
+
+```{r pcaraw.mat, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Principal components analysis by raw material."}
+#attributes for plot
+df<-data[c(4:8)]
+pch.gps.gp <- c(15,16)[as.factor(raw.mat)]
+col.gps.gp <- wes_palette("Moonrise2")[as.factor(raw.mat)]
+
+#pca
+pca <- autoplot(prcomp(df),
+                data = data,
+                asp = 1,
+                shape = pch.gps.gp,
+                colour = "raw.mat",
+                variance_percentage = TRUE,
+                loadings = TRUE, 
+                loadings.colour = 'blue',
+                loadings.label = TRUE,
+                loadings.label.size = 3,
+                frame = TRUE,
+                frame.type = 't') +
+  scale_fill_manual(values = wes_palette("Moonrise2")) +
+  scale_colour_manual(values = wes_palette("Moonrise2"))
+
+ggMarginal(pca, groupColour = TRUE)
+```
+
+## Analyses of Variance (ANOVA) for _variable_ ~ _raw.mat_
+
+### _Maximum length_ of Perdiz arrow points
+
+```{r anovaraw.matmaxl, out.width = "100%", dpi = 300, echo=TRUE}
+# anova = maximum length ~ raw.mat
+raw.matml <- lm.rrpp(maxl ~ raw.mat, 
+                  SS.type = "I", 
+                  data = data, iter = 9999, 
+                  print.progress = FALSE)
+anova(raw.matml)
+```
+
+### _Maximum width_ of Perdiz arrow points
+
+```{r anovaraw.matmaxw, out.width = "100%", dpi = 300, echo=TRUE}
+# anova = maximum width ~ raw.mat
+raw.matmw <- lm.rrpp(maxw ~ raw.mat, 
+                  SS.type = "I", 
+                  data = data, 
+                  iter = 9999, 
+                  print.progress = FALSE)
+anova(raw.matmw)
+```
+
+### _Maximum thickness_ of Perdiz arrow points
+
+```{r anovaraw.matmaxth, out.width = "100%", dpi = 300, echo=TRUE}
+# anova = maximum thickness ~ raw.mat
+raw.matmth <- lm.rrpp(maxth ~ raw.mat, 
+                   SS.type = "I", 
+                   data = data, 
+                   iter = 9999, 
+                   print.progress = FALSE)
+anova(raw.matmth)
+```
+
+### _Maximum stem length_ of Perdiz arrow points
+
+```{r anovaraw.matmaxstl, out.width = "100%", dpi = 300, echo=TRUE}
+# anova = maximum stem length ~ raw.mat
+raw.matmstl <- lm.rrpp(maxstl ~ raw.mat, 
+                    SS.type = "I", 
+                    data = data, 
+                    iter = 9999, 
+                    print.progress = FALSE)
+anova(raw.matmstl)
+```
+
+### _Maximum stem width_ of Perdiz arrow points
+
+```{r anovaraw.matmaxstw, out.width = "100%", dpi = 300, echo=TRUE}
+# anova = maximum stem width ~ raw.mat
+raw.matmstw <- lm.rrpp(maxstw ~ raw.mat, 
+                    SS.type = "I", 
+                    data = data, 
+                    iter = 9999, 
+                    print.progress = FALSE)
+anova(raw.matmstw)
+```

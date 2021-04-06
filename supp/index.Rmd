@@ -1,0 +1,68 @@
+--- 
+title: "Perdiz arrow points from Caddo mortuary contexts in the American Southeast: Linear and landmark geometric morphometrics"
+author: "Robert Z. Selden, Jr."
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Morphology of Perdiz arrow points."
+---
+
+# Preface {-}
+
+>Reproducibility---the ability to recompute results---and replicability---the chances other experimenters will achieve a consistent result---are two foundational characteristics of successful scientific research [@RN20918].
+
+This volume is written using _Markdown_, and includes all analysis code employed in the study, providing a means for others to reproduce (exactly) those results discussed and expounded upon in the following chapters. The replicable nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components of this study [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge.
+
+## Basis of inquiry
+
+
+
+## Primary findings
+
+### Linear morphometrics
+* Maximum thickness **differs significantly** by raw material
+* Maximum stem width **differs significantly** by raw material
+
+### Geometric morphometrics
+* There is **significant** allometry in the sample
+* Common allometry is expressed among the Perdiz arrow points by raw material
+* Perdiz arrow point shape **does differ significantly** by raw material
+* Perdiz arrow point size **does not differ significantly** by raw material
+* Morphological integration **is significant** for Perdiz arrow points
+* Morphological disparity **is not significant** for raw materials
+* Shape and linear data are **significantly** correlated
+
+### Symmetry and asymmetry
+* There is **significant** asymmetry in the sample
+* The symmetric shape of Perdiz arrow points **differs significantly** by raw material
+
+## Acknowledgments
+
+I express my gratitude to the Caddo Nation of Oklahoma and the Anthropology and Archaeology Laboratory at Stephen F. Austin State University for the requisite permissions and access to the NAGPRA items from the Washington Square Mound site and Turner collection. Thanks to ... , as well as the editors and reviewers for their comments and constructive criticisms, which further improved the analysis and manuscript.
+
+## Funding
+
+Components of the analytical workflow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to RZS from the National Center for Preservation Technology and Training, as well as grants to RZS from the Caddo Nation of Oklahoma, National Forests and Grasslands in Texas (15-PA-11081300-033) and the United States Forest Service (20-PA-11081300-074).
+
+## Data management
+
+The data and analysis code associated with this project can be accessed through this document or the [GitHub](https://github.com/aksel-blaise/perdiz.3) repository.
+
+## Colophon
+
+This version of the analysis was generated on `r Sys.time()` using the following computational environment and dependencies: 
+
+```{r colophon, cache = FALSE}
+# what R packages and versions were used?
+if ("devtools" %in% installed.packages()) devtools::session_info()
+```
+
+Current Git commit details are:
+
+```{r}
+# where can I find this commit? 
+if ("git2r" %in% installed.packages() & git2r::in_repository(path = ".")) git2r::repository(here::here())  
+```

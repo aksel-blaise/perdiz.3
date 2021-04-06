@@ -1,0 +1,126 @@
+# Symmetry and asymmetry
+
+In studies of projectile morphology, an analysis of bilateral/object symmetry may yield useful insights related to _design intent_, provided we assume that the goal of the knapper was to achieve a fully-symmetrical form. Within that framework, deviation from bilateral symmetry (fluctuating asymmetry) might serve as a useful measure of _knapper skill_ and/or _differential production_. Both measures have utility in comparisons of contexts and sites, to include wide-ranging spatial and temporal applications. Initially developed for a [symmetry analysis of Gahagan bifaces](https://github.com/aksel-blaise/gahagan.asymmetry/blob/master/asymmetry.md), the same approach can be employed for an analysis of asymmetry in Perdiz arrow points.
+
+## Load packages + data
+
+```{r load.data.asymm, echo=TRUE, out.width = "100%", dpi = 300, warning=FALSE}
+# load analysis packages
+library(here)
+library(geomorph)
+library(tidyverse)
+library(wesanderson)
+
+# read shape data and define number of sLMs
+shapes <- readShapes("shapes")
+shapesGM <- readland.shapes(shapes, nCurvePts = c(10,3,5,5,3,10))
+
+# read qualitative data
+qdata <- read.csv("qdata.csv", 
+                  header = TRUE, 
+                  row.names = 1)
+land.pairs <- read.csv("asymmetry1.csv",
+                     header=TRUE)
+ind <- qdata$spec.x
+```
+
+## Generalized Procrustes Analysis
+
+```{r assym.gpa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# gpa for bilateral (object) asymmetry
+res.bilat <- bilat.symmetry(shapesGM,
+                          ind = ind, 
+                          object.sym = TRUE,
+                          land.pairs = land.pairs,
+                          RRPP = TRUE,
+                          iter = 9999,
+                          print.progress = FALSE)
+summary(res.bilat)
+```
+
+### Symmetric shape
+
+```{r symm.shape, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Symmetric shape component plotted in 2D."}
+# symmetric shape
+symm.shape <- res.bilat$symm.shape[,1:2,]
+
+# plot all specimens in 2D
+plotAllSpecimens(symm.shape)
+```
+
+### Asymmetric shape
+
+```{r asymm.shape, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Asymmetric shape component plotted in 2D."}
+# asymmetric shape
+asymm.shape <- res.bilat$FA.component[,1:2,]
+
+# plot all specimens in 2D
+plotAllSpecimens(asymm.shape)
+```
+
+## Principal Components Analysis (symmetric)
+
+```{r pca.symm, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# geomorph data frame
+gdf <- geomorph.data.frame(shape = res.bilat$symm.shape, 
+                           ashape = res.bilat$FA.component,
+                           raw.mat = qdata$raw.mat)
+
+# principal components analysis (symmetric)
+pca.symm <- gm.prcomp(res.bilat$symm.shape)
+summary(pca.symm)
+
+# set plot parameters
+pch.gps <- c(15:17)[as.factor(raw.mat)]
+col.gps <- pal[as.factor(raw.mat)]
+col.hull <- c("#C27D38","#798E87","#CCC591")
+
+# pca.symm plot
+pc.plot <- plot(pca.symm,
+                asp = 1,
+                pch = pch.gps,
+                col = col.gps)
+shapeHulls(pc.plot,
+           groups = raw.mat,
+           group.cols = col.hull)
+```
+
+## Principal Components Analysis (asymmetric)
+
+```{r pca.asymm, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# principal components analysis (asymmetric)
+pca.asymm <- gm.prcomp(res.bilat$FA.component)
+summary(pca.asymm)
+
+# pca.asymm plot
+pc.plot <- plot(pca.asymm,
+                asp = 1,
+                pch = pch.gps,
+                col = col.gps)
+shapeHulls(pc.plot,
+           groups = raw.mat,
+           group.cols = col.hull)
+```
+
+## Procrustes ANOVA
+
+```{r def.mod.1.asymm, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# symmetric shape as a function of raw material
+fit.shape.raw <- procD.lm(shape ~ raw.mat, 
+                            data = gdf, 
+                            print.progress = FALSE, 
+                            iter = 9999)
+# anova
+anova(fit.shape.raw)
+
+# asymmetric shape as a function of raw material
+fit.shape.raw.asymm <- procD.lm(ashape ~ raw.mat, 
+                            data = gdf, 
+                            print.progress = FALSE, 
+                            iter = 9999)
+
+# anova
+anova(fit.shape.raw.asymm)
+
+# end of code
+```
