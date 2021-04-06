@@ -1,6 +1,6 @@
 # Linear morphometrics
 
-```{r load packages 3, echo=TRUE}
+```{r load packages 3, echo=TRUE, warning=FALSE}
 # install required analysis packages
 #devtools::install_github("tidyverse/tidyverse")
 #devtools::install_github("mlcollyer/RRPP")
