@@ -29,10 +29,8 @@ This volume is written using _Markdown_, and includes all analysis code employed
 ### Geometric morphometrics
 * There is **significant** allometry in the sample
 * Common allometry is expressed among the Perdiz arrow points by raw material
-* Perdiz arrow point shape **does differ significantly** by raw material
-* Perdiz arrow point size **does not differ significantly** by raw material
+* Perdiz arrow point shape **differs significantly** by raw material
 * Morphological integration **is significant** for Perdiz arrow points
-* Morphological disparity **is not significant** for raw materials
 * Shape and linear data are **significantly** correlated
 
 ### Symmetry and asymmetry
