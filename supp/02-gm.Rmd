@@ -107,6 +107,12 @@ plotRefToTarget(pca$shapes$shapes.comp2$max,
                 mean.shape)
 ```
 
+### Composite
+
+```{r composite.pca, out.width = "100%", dpi = 300, echo=TRUE}
+knitr::include_graphics('figures/pca.warp.jpg')
+```
+
 ## Procrustes ANOVA: Shape and size
 
 ```{r ss, echo=TRUE, out.width = "100%", dpi = 300, warning=FALSE}
@@ -224,7 +230,8 @@ linear <- qdata %>%
 # 2B-PLS
 shape.meas.cor <- two.b.pls(A1=Y.gpa$coords, 
                             A2=linear,
-                            print.progress = FALSE)
+                            print.progress = FALSE,
+                            iter = 9999)
 summary(shape.meas.cor)
 plot(shape.meas.cor)
 ```
