@@ -29,6 +29,8 @@ qdata <- read.csv("qdata.csv",
 ```{r gpa, echo=TRUE, out.width = "100%", dpi = 300, warning=FALSE}
 # gpa
 Y.gpa <- gpagen(shapesGM, print.progress = FALSE)
+
+## plot
 plot(Y.gpa)
 ```
 
@@ -59,7 +61,7 @@ csz.temp <- ggplot(qdata, aes(x = raw.mat, y = csz, color = raw.mat)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
   labs(x = 'Raw Material', y = 'Centroid Size')
 
-# render plot
+## render plot
 csz.temp
 ```
 
@@ -75,7 +77,7 @@ pch.gps <- c(15:17)[as.factor(raw.mat)]
 col.gps <- pal[as.factor(raw.mat)]
 col.hull <- c("#C27D38","#798E87","#CCC591")
 
-# pca plot
+## pca plot
 pc.plot <- plot(pca,
                 asp = 1,
                 pch = pch.gps,
@@ -89,20 +91,20 @@ shapeHulls(pc.plot,
 
 ```{r min.max, echo=TRUE, out.width = "100%", dpi = 300, warning=FALSE}
 # plot x/y maxima/minima
-# x - minima
+## x - minima
 mean.shape <- mshape(Y.gpa$coords)
 plotRefToTarget(pca$shapes$shapes.comp1$min, 
                 mean.shape)
 
-# x - maxima
+## x - maxima
 plotRefToTarget(pca$shapes$shapes.comp1$max, 
                 mean.shape)
 
-# y - minima
+## y - minima
 plotRefToTarget(pca$shapes$shapes.comp2$min, 
                 mean.shape)
 
-# y - maxima
+## y - maxima
 plotRefToTarget(pca$shapes$shapes.comp2$max, 
                 mean.shape)
 ```
@@ -110,6 +112,7 @@ plotRefToTarget(pca$shapes$shapes.comp2$max,
 ### Composite
 
 ```{r composite.pca, out.width = "100%", dpi = 300, echo=TRUE}
+## plot composite pca with PC1/2 max/min
 knitr::include_graphics('figures/pca.warp.jpg')
 ```
 
@@ -147,11 +150,14 @@ fit.size <- procD.lm(shape ~ size,
 # allometry
 anova(fit.size)
 
-## PLS
+# PLS
 allom.PLS <- two.b.pls(gdf$size,
                        gdf$shape,
-                       print.progress = FALSE)
+                       print.progress = FALSE,
+                       iter = 9999)
 allom.PLS
+
+## plot PLS
 plot(allom.PLS)
 ```
 
@@ -177,7 +183,7 @@ anova(unique.allom,
 
 # result not significant; common allometry most appropriate
 
-# predline
+## plot predline
 plotAllometry(common.allom, 
               size = gdf$size, 
               logsz = TRUE, 
@@ -185,7 +191,7 @@ plotAllometry(common.allom,
               col = col.gps,
               pch = pch.gps)
 
-# regscore
+## plot regscore
 plotAllometry(common.allom, 
               size = gdf$size, 
               logsz = TRUE, 
@@ -202,10 +208,12 @@ land.gps <- c("A","A","B","B","B","A","A","A","A","A","A","A","A","A",
               "A","A")
 it <- integration.test(Y.gpa$coords,
                        partition.gp = land.gps,
-                       iter = 9999,
-                       print.progress = FALSE)
+                       print.progress = FALSE,
+                       iter = 9999)
 
 summary(it)
+
+## integration plot
 plot(it)
 ```
 
@@ -233,6 +241,8 @@ shape.meas.cor <- two.b.pls(A1=Y.gpa$coords,
                             print.progress = FALSE,
                             iter = 9999)
 summary(shape.meas.cor)
+
+## plot PLS
 plot(shape.meas.cor)
 ```
 
@@ -247,22 +257,26 @@ names(new.coords)
 # group shape means
 mean <- lapply(new.coords, mshape)
 
-# plot mean shapes
+## plot mean shapes
+## chert
 plot(mean$chert)
+## quartzite
 plot(mean$quartzite)
+## silicified wood
 plot(mean$s.wd)
 
-# comparison plots
+## comparison plots
+## chert + quartzite
 plotRefToTarget(mean$chert,
                 mean$quartzite,
                 method = "points",
                 mag = 1)
-
+## chert + silicified wood
 plotRefToTarget(mean$chert,
                 mean$s.wd,
                 method = "points",
                 mag = 1)
-
+## quartzite + silicified wood
 plotRefToTarget(mean$quartzite,
                 mean$s.wd,
                 method = "points",
