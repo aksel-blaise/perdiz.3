@@ -2,7 +2,6 @@ basis-of-inquiry
 primary-findings
 linear-morphometrics
 geometric-morphometrics
-symmetry-and-asymmetry
 acknowledgments
 funding
 data-management
@@ -31,11 +30,3 @@ morphological-integration
 morphological-disparity
 shape-vs-linear-data
 mean-shapes
-symmetry-and-asymmetry-1
-load-packages-data-1
-generalized-procrustes-analysis
-symmetric-shape
-asymmetric-shape
-principal-components-analysis-symmetric
-principal-components-analysis-asymmetric
-procrustes-anova

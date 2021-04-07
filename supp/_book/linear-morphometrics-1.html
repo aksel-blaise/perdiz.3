@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr." />
 
 
-<meta name="date" content="2021-04-06" />
+<meta name="date" content="2021-04-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,7 +140,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.2.1" data-path="index.html"><a href="index.html#linear-morphometrics"><i class="fa fa-check"></i><b>0.2.1</b> Linear morphometrics</a></li>
 <li class="chapter" data-level="0.2.2" data-path="index.html"><a href="index.html#geometric-morphometrics"><i class="fa fa-check"></i><b>0.2.2</b> Geometric morphometrics</a></li>
-<li class="chapter" data-level="0.2.3" data-path="index.html"><a href="index.html#symmetry-and-asymmetry"><i class="fa fa-check"></i><b>0.2.3</b> Symmetry and asymmetry</a></li>
 </ul></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.3</b> Acknowledgments</a></li>
 <li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#funding"><i class="fa fa-check"></i><b>0.4</b> Funding</a></li>
@@ -180,18 +179,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8" data-path="geometric-morphometrics-1.html"><a href="geometric-morphometrics-1.html#morphological-disparity"><i class="fa fa-check"></i><b>2.8</b> Morphological disparity</a></li>
 <li class="chapter" data-level="2.9" data-path="geometric-morphometrics-1.html"><a href="geometric-morphometrics-1.html#shape-vs-linear-data"><i class="fa fa-check"></i><b>2.9</b> Shape vs linear data</a></li>
 <li class="chapter" data-level="2.10" data-path="geometric-morphometrics-1.html"><a href="geometric-morphometrics-1.html#mean-shapes"><i class="fa fa-check"></i><b>2.10</b> Mean shapes</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html"><i class="fa fa-check"></i><b>3</b> Symmetry and asymmetry</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#load-packages-data-1"><i class="fa fa-check"></i><b>3.1</b> Load packages + data</a></li>
-<li class="chapter" data-level="3.2" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#generalized-procrustes-analysis"><i class="fa fa-check"></i><b>3.2</b> Generalized Procrustes Analysis</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#symmetric-shape"><i class="fa fa-check"></i><b>3.2.1</b> Symmetric shape</a></li>
-<li class="chapter" data-level="3.2.2" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#asymmetric-shape"><i class="fa fa-check"></i><b>3.2.2</b> Asymmetric shape</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#principal-components-analysis-symmetric"><i class="fa fa-check"></i><b>3.3</b> Principal Components Analysis (symmetric)</a></li>
-<li class="chapter" data-level="3.4" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#principal-components-analysis-asymmetric"><i class="fa fa-check"></i><b>3.4</b> Principal Components Analysis (asymmetric)</a></li>
-<li class="chapter" data-level="3.5" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#procrustes-anova"><i class="fa fa-check"></i><b>3.5</b> Procrustes ANOVA</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -358,8 +345,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residuals 31 770.44 24.853 0.89432                      
 ## Total     33 861.49                                     
 ## 
-## Call: lm.rrpp(f1 = maxl ~ raw.mat, iter = 9999, SS.type = &quot;I&quot;, data = data,  
-##     print.progress = FALSE)</code></pre>
+## Call: lm.rrpp(f1 = maxl ~ raw.mat, iter = 9999, SS.type = &quot;I&quot;, data = data,      print.progress = FALSE)</code></pre>
 </div>
 <div id="maximum-width-of-perdiz-arrow-points" class="section level3" number="1.4.2">
 <h3><span class="header-section-number">1.4.2</span> <em>Maximum width</em> of Perdiz arrow points</h3>
@@ -383,8 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residuals 31 102.161 3.2955 0.98953                     
 ## Total     33 103.242                                    
 ## 
-## Call: lm.rrpp(f1 = maxw ~ raw.mat, iter = 9999, SS.type = &quot;I&quot;, data = data,  
-##     print.progress = FALSE)</code></pre>
+## Call: lm.rrpp(f1 = maxw ~ raw.mat, iter = 9999, SS.type = &quot;I&quot;, data = data,      print.progress = FALSE)</code></pre>
 </div>
 <div id="maximum-thickness-of-perdiz-arrow-points" class="section level3" number="1.4.3">
 <h3><span class="header-section-number">1.4.3</span> <em>Maximum thickness</em> of Perdiz arrow points</h3>
@@ -410,8 +395,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Call: lm.rrpp(f1 = maxth ~ raw.mat, iter = 9999, SS.type = &quot;I&quot;, data = data,  
-##     print.progress = FALSE)</code></pre>
+## Call: lm.rrpp(f1 = maxth ~ raw.mat, iter = 9999, SS.type = &quot;I&quot;, data = data,      print.progress = FALSE)</code></pre>
 </div>
 <div id="maximum-stem-length-of-perdiz-arrow-points" class="section level3" number="1.4.4">
 <h3><span class="header-section-number">1.4.4</span> <em>Maximum stem length</em> of Perdiz arrow points</h3>
@@ -435,8 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residuals 31 42.445 1.36919 0.96887                      
 ## Total     33 43.809                                      
 ## 
-## Call: lm.rrpp(f1 = maxstl ~ raw.mat, iter = 9999, SS.type = &quot;I&quot;, data = data,  
-##     print.progress = FALSE)</code></pre>
+## Call: lm.rrpp(f1 = maxstl ~ raw.mat, iter = 9999, SS.type = &quot;I&quot;, data = data,      print.progress = FALSE)</code></pre>
 </div>
 <div id="maximum-stem-width-of-perdiz-arrow-points" class="section level3" number="1.4.5">
 <h3><span class="header-section-number">1.4.5</span> <em>Maximum stem width</em> of Perdiz arrow points</h3>
@@ -462,8 +445,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Call: lm.rrpp(f1 = maxstw ~ raw.mat, iter = 9999, SS.type = &quot;I&quot;, data = data,  
-##     print.progress = FALSE)</code></pre>
+## Call: lm.rrpp(f1 = maxstw ~ raw.mat, iter = 9999, SS.type = &quot;I&quot;, data = data,      print.progress = FALSE)</code></pre>
 
 </div>
 </div>

@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr." />
 
 
-<meta name="date" content="2021-04-06" />
+<meta name="date" content="2021-04-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="linear-morphometrics-1.html"/>
-<link rel="next" href="symmetry-and-asymmetry-1.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -140,7 +140,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.2.1" data-path="index.html"><a href="index.html#linear-morphometrics"><i class="fa fa-check"></i><b>0.2.1</b> Linear morphometrics</a></li>
 <li class="chapter" data-level="0.2.2" data-path="index.html"><a href="index.html#geometric-morphometrics"><i class="fa fa-check"></i><b>0.2.2</b> Geometric morphometrics</a></li>
-<li class="chapter" data-level="0.2.3" data-path="index.html"><a href="index.html#symmetry-and-asymmetry"><i class="fa fa-check"></i><b>0.2.3</b> Symmetry and asymmetry</a></li>
 </ul></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.3</b> Acknowledgments</a></li>
 <li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#funding"><i class="fa fa-check"></i><b>0.4</b> Funding</a></li>
@@ -180,18 +179,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8" data-path="geometric-morphometrics-1.html"><a href="geometric-morphometrics-1.html#morphological-disparity"><i class="fa fa-check"></i><b>2.8</b> Morphological disparity</a></li>
 <li class="chapter" data-level="2.9" data-path="geometric-morphometrics-1.html"><a href="geometric-morphometrics-1.html#shape-vs-linear-data"><i class="fa fa-check"></i><b>2.9</b> Shape vs linear data</a></li>
 <li class="chapter" data-level="2.10" data-path="geometric-morphometrics-1.html"><a href="geometric-morphometrics-1.html#mean-shapes"><i class="fa fa-check"></i><b>2.10</b> Mean shapes</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html"><i class="fa fa-check"></i><b>3</b> Symmetry and asymmetry</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#load-packages-data-1"><i class="fa fa-check"></i><b>3.1</b> Load packages + data</a></li>
-<li class="chapter" data-level="3.2" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#generalized-procrustes-analysis"><i class="fa fa-check"></i><b>3.2</b> Generalized Procrustes Analysis</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#symmetric-shape"><i class="fa fa-check"></i><b>3.2.1</b> Symmetric shape</a></li>
-<li class="chapter" data-level="3.2.2" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#asymmetric-shape"><i class="fa fa-check"></i><b>3.2.2</b> Asymmetric shape</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#principal-components-analysis-symmetric"><i class="fa fa-check"></i><b>3.3</b> Principal Components Analysis (symmetric)</a></li>
-<li class="chapter" data-level="3.4" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#principal-components-analysis-asymmetric"><i class="fa fa-check"></i><b>3.4</b> Principal Components Analysis (asymmetric)</a></li>
-<li class="chapter" data-level="3.5" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#procrustes-anova"><i class="fa fa-check"></i><b>3.5</b> Procrustes ANOVA</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -292,34 +279,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Number of vectors 33 
 ## 
 ## Importance of Components:
-##                              Comp1       Comp2        Comp3        Comp4        Comp5
-## Eigenvalues            0.005065696 0.003261422 0.0009175119 0.0004563108 0.0002856063
-## Proportion of Variance 0.478343244 0.307969382 0.0866387560 0.0430884910 0.0269692100
-## Cumulative Proportion  0.478343244 0.786312626 0.8729513818 0.9160398728 0.9430090827
-##                               Comp6        Comp7        Comp8        Comp9       Comp10
-## Eigenvalues            0.0001467771 0.0001283976 8.173805e-05 0.0000501841 0.0000484592
-## Proportion of Variance 0.0138598626 0.0121243210 7.718356e-03 0.0047387808 0.0045759023
-## Cumulative Proportion  0.9568689453 0.9689932663 9.767116e-01 0.9814504026 0.9860263048
-##                              Comp11       Comp12       Comp13      Comp14       Comp15
-## Eigenvalues            2.658862e-05 2.350167e-05 0.0000197514 0.000018490 1.144529e-05
-## Proportion of Variance 2.510709e-03 2.219214e-03 0.0018650840 0.001745972 1.080755e-03
-## Cumulative Proportion  9.885370e-01 9.907562e-01 0.9926213119 0.994367284 9.954480e-01
-##                              Comp16       Comp17       Comp18       Comp19       Comp20
-## Eigenvalues            9.606114e-06 8.480510e-06 7.058612e-06 4.834842e-06 4.166980e-06
-## Proportion of Variance 9.070855e-04 8.007971e-04 6.665301e-04 4.565442e-04 3.934793e-04
-## Cumulative Proportion  9.963551e-01 9.971559e-01 9.978225e-01 9.982790e-01 9.986725e-01
-##                              Comp21       Comp22       Comp23       Comp24       Comp25
-## Eigenvalues            3.351299e-06 2.531934e-06 2.310781e-06 1.679831e-06 1.298406e-06
-## Proportion of Variance 3.164562e-04 2.390853e-04 2.182023e-04 1.586230e-04 1.226058e-04
-## Cumulative Proportion  9.989889e-01 9.992280e-01 9.994462e-01 9.996048e-01 9.997274e-01
-##                              Comp26       Comp27       Comp28       Comp29       Comp30
-## Eigenvalues            7.965171e-07 6.926828e-07 4.310123e-07 3.255209e-07 2.444317e-07
-## Proportion of Variance 7.521347e-05 6.540861e-05 4.069960e-05 3.073826e-05 2.308118e-05
-## Cumulative Proportion  9.998027e-01 9.998681e-01 9.999088e-01 9.999395e-01 9.999626e-01
-##                              Comp31       Comp32       Comp33
-## Eigenvalues            2.197541e-07 1.319166e-07 4.451061e-08
-## Proportion of Variance 2.075093e-05 1.245661e-05 4.203045e-06
-## Cumulative Proportion  9.999833e-01 9.999958e-01 1.000000e+00</code></pre>
+##                              Comp1       Comp2        Comp3        Comp4        Comp5        Comp6        Comp7
+## Eigenvalues            0.005065696 0.003261422 0.0009175119 0.0004563108 0.0002856063 0.0001467771 0.0001283976
+## Proportion of Variance 0.478343244 0.307969382 0.0866387560 0.0430884910 0.0269692100 0.0138598626 0.0121243210
+## Cumulative Proportion  0.478343244 0.786312626 0.8729513818 0.9160398728 0.9430090827 0.9568689453 0.9689932663
+##                               Comp8        Comp9       Comp10       Comp11       Comp12       Comp13      Comp14
+## Eigenvalues            8.173805e-05 0.0000501841 0.0000484592 2.658862e-05 2.350167e-05 0.0000197514 0.000018490
+## Proportion of Variance 7.718356e-03 0.0047387808 0.0045759023 2.510709e-03 2.219214e-03 0.0018650840 0.001745972
+## Cumulative Proportion  9.767116e-01 0.9814504026 0.9860263048 9.885370e-01 9.907562e-01 0.9926213119 0.994367284
+##                              Comp15       Comp16       Comp17       Comp18       Comp19       Comp20       Comp21
+## Eigenvalues            1.144529e-05 9.606114e-06 8.480510e-06 7.058612e-06 4.834842e-06 4.166980e-06 3.351299e-06
+## Proportion of Variance 1.080755e-03 9.070855e-04 8.007971e-04 6.665301e-04 4.565442e-04 3.934793e-04 3.164562e-04
+## Cumulative Proportion  9.954480e-01 9.963551e-01 9.971559e-01 9.978225e-01 9.982790e-01 9.986725e-01 9.989889e-01
+##                              Comp22       Comp23       Comp24       Comp25       Comp26       Comp27       Comp28
+## Eigenvalues            2.531934e-06 2.310781e-06 1.679831e-06 1.298406e-06 7.965171e-07 6.926828e-07 4.310123e-07
+## Proportion of Variance 2.390853e-04 2.182023e-04 1.586230e-04 1.226058e-04 7.521347e-05 6.540861e-05 4.069960e-05
+## Cumulative Proportion  9.992280e-01 9.994462e-01 9.996048e-01 9.997274e-01 9.998027e-01 9.998681e-01 9.999088e-01
+##                              Comp29       Comp30       Comp31       Comp32       Comp33
+## Eigenvalues            3.255209e-07 2.444317e-07 2.197541e-07 1.319166e-07 4.451061e-08
+## Proportion of Variance 3.073826e-05 2.308118e-05 2.075093e-05 1.245661e-05 4.203045e-06
+## Cumulative Proportion  9.999395e-01 9.999626e-01 9.999833e-01 9.999958e-01 1.000000e+00</code></pre>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="geometric-morphometrics-1.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters</span></span>
 <span id="cb27-2"><a href="geometric-morphometrics-1.html#cb27-2" aria-hidden="true" tabindex="-1"></a>pch.gps <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span><span class="sc">:</span><span class="dv">17</span>)[<span class="fu">as.factor</span>(raw.mat)]</span>
 <span id="cb27-3"><a href="geometric-morphometrics-1.html#cb27-3" aria-hidden="true" tabindex="-1"></a>col.gps <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(raw.mat)]</span>
@@ -484,14 +463,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Estimation method: Ordinary Least Squares 
 ## Effect sizes (Z) based on F distributions
 ## 
-##                               ResDf Df     RSS        SS        MS       Rsq     F       Z      P
-## shape ~ size * raw.mat (Null)    28  1 0.23047                      0.000000                     
-## shape ~ size + raw.mat           30 -2 0.24514 -0.014675 0.0073376 -0.041992 0.898 -1.5353 0.9377
-## Total                            33    0.34947                                                   
-##                               Pr(&gt;F)
-## shape ~ size * raw.mat (Null)       
-## shape ~ size + raw.mat              
-## Total</code></pre>
+##                               ResDf Df     RSS        SS        MS       Rsq     F       Z      P Pr(&gt;F)
+## shape ~ size * raw.mat (Null)    28  1 0.23047                      0.000000                            
+## shape ~ size + raw.mat           30 -2 0.24514 -0.014675 0.0073376 -0.041992 0.898 -1.5353 0.9377       
+## Total                            33    0.34947</code></pre>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="geometric-morphometrics-1.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># result not significant; common allometry most appropriate</span></span>
 <span id="cb44-2"><a href="geometric-morphometrics-1.html#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-3"><a href="geometric-morphometrics-1.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="do">## plot predline</span></span>
@@ -525,8 +500,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb46-9"><a href="geometric-morphometrics-1.html#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(it)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## integration.test(A = Y.gpa$coords, partition.gp = land.gps, iter = 9999,  
-##     print.progress = FALSE) 
+## integration.test(A = Y.gpa$coords, partition.gp = land.gps, iter = 9999,      print.progress = FALSE) 
 ## 
 ## 
 ## 
@@ -654,7 +628,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="linear-morphometrics-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="symmetry-and-asymmetry-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

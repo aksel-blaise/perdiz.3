@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr." />
 
 
-<meta name="date" content="2021-04-06" />
+<meta name="date" content="2021-04-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,7 +140,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.2.1" data-path="index.html"><a href="index.html#linear-morphometrics"><i class="fa fa-check"></i><b>0.2.1</b> Linear morphometrics</a></li>
 <li class="chapter" data-level="0.2.2" data-path="index.html"><a href="index.html#geometric-morphometrics"><i class="fa fa-check"></i><b>0.2.2</b> Geometric morphometrics</a></li>
-<li class="chapter" data-level="0.2.3" data-path="index.html"><a href="index.html#symmetry-and-asymmetry"><i class="fa fa-check"></i><b>0.2.3</b> Symmetry and asymmetry</a></li>
 </ul></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.3</b> Acknowledgments</a></li>
 <li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#funding"><i class="fa fa-check"></i><b>0.4</b> Funding</a></li>
@@ -181,18 +180,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.9" data-path="geometric-morphometrics-1.html"><a href="geometric-morphometrics-1.html#shape-vs-linear-data"><i class="fa fa-check"></i><b>2.9</b> Shape vs linear data</a></li>
 <li class="chapter" data-level="2.10" data-path="geometric-morphometrics-1.html"><a href="geometric-morphometrics-1.html#mean-shapes"><i class="fa fa-check"></i><b>2.10</b> Mean shapes</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html"><i class="fa fa-check"></i><b>3</b> Symmetry and asymmetry</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#load-packages-data-1"><i class="fa fa-check"></i><b>3.1</b> Load packages + data</a></li>
-<li class="chapter" data-level="3.2" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#generalized-procrustes-analysis"><i class="fa fa-check"></i><b>3.2</b> Generalized Procrustes Analysis</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#symmetric-shape"><i class="fa fa-check"></i><b>3.2.1</b> Symmetric shape</a></li>
-<li class="chapter" data-level="3.2.2" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#asymmetric-shape"><i class="fa fa-check"></i><b>3.2.2</b> Asymmetric shape</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#principal-components-analysis-symmetric"><i class="fa fa-check"></i><b>3.3</b> Principal Components Analysis (symmetric)</a></li>
-<li class="chapter" data-level="3.4" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#principal-components-analysis-asymmetric"><i class="fa fa-check"></i><b>3.4</b> Principal Components Analysis (asymmetric)</a></li>
-<li class="chapter" data-level="3.5" data-path="symmetry-and-asymmetry-1.html"><a href="symmetry-and-asymmetry-1.html#procrustes-anova"><i class="fa fa-check"></i><b>3.5</b> Procrustes ANOVA</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -217,7 +204,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Perdiz arrow points from Caddo mortuary contexts in the American Southeast: Linear and landmark geometric morphometrics</h1>
 <p class="author"><em>Robert Z. Selden, Jr.</em></p>
-<p class="date"><em>2021-04-06</em></p>
+<p class="date"><em>2021-04-07</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
@@ -247,13 +234,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Shape and linear data are <strong>significantly</strong> correlated</li>
 </ul>
 </div>
-<div id="symmetry-and-asymmetry" class="section level3" number="0.2.3">
-<h3><span class="header-section-number">0.2.3</span> Symmetry and asymmetry</h3>
-<ul>
-<li>There is <strong>significant</strong> asymmetry in the sample</li>
-<li>The symmetric shape of Perdiz arrow points <strong>differs significantly</strong> by raw material</li>
-</ul>
-</div>
 </div>
 <div id="acknowledgments" class="section level2" number="0.3">
 <h2><span class="header-section-number">0.3</span> Acknowledgments</h2>
@@ -269,10 +249,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="colophon" class="section level2" number="0.6">
 <h2><span class="header-section-number">0.6</span> Colophon</h2>
-<p>This version of the analysis was generated on 2021-04-06 19:24:58 using the following computational environment and dependencies:</p>
+<p>This version of the analysis was generated on 2021-04-07 04:58:34 using the following computational environment and dependencies:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what R packages and versions were used?</span></span>
 <span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="st">&quot;devtools&quot;</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>()) devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
-<pre><code>## - Session info ---------------------------------------------------------------------------------
+<pre><code>## - Session info ----------------------------------------------------------------------------------------------------
 ##  setting  value                       
 ##  version  R version 4.0.4 (2021-02-15)
 ##  os       Windows 10 x64              
@@ -282,9 +262,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  collate  English_United States.1252  
 ##  ctype    English_United States.1252  
 ##  tz       America/Chicago             
-##  date     2021-04-06                  
+##  date     2021-04-07                  
 ## 
-## - Packages -------------------------------------------------------------------------------------
+## - Packages --------------------------------------------------------------------------------------------------------
 ##  package          * version  date       lib source                             
 ##  abind              1.4-5    2016-07-21 [1] CRAN (R 4.0.0)                     
 ##  ape                5.4-1    2020-08-13 [1] CRAN (R 4.0.2)                     
@@ -422,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-2"><a href="index.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="st">&quot;git2r&quot;</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>() <span class="sc">&amp;</span> git2r<span class="sc">::</span><span class="fu">in_repository</span>(<span class="at">path =</span> <span class="st">&quot;.&quot;</span>)) git2r<span class="sc">::</span><span class="fu">repository</span>(here<span class="sc">::</span><span class="fu">here</span>())  </span></code></pre></div>
 <pre><code>## Local:    main D:/github/perdiz.3
 ## Remote:   main @ origin (https://github.com/aksel-blaise/perdiz.3)
-## Head:     [d0445cb] 2021-04-07: &lt;edit gm&gt;</code></pre>
+## Head:     [3d0dd1d] 2021-04-07: &lt;fig.notation&gt;</code></pre>
 
 </div>
 </div>

@@ -33,10 +33,6 @@ This volume is written using _Markdown_, and includes all analysis code employed
 * Morphological integration **is significant** for Perdiz arrow points
 * Shape and linear data are **significantly** correlated
 
-### Symmetry and asymmetry
-* There is **significant** asymmetry in the sample
-* The symmetric shape of Perdiz arrow points **differs significantly** by raw material
-
 ## Acknowledgments
 
 I express my gratitude to the Caddo Nation of Oklahoma and the Anthropology and Archaeology Laboratory at Stephen F. Austin State University for the requisite permissions and access to the NAGPRA items from the Washington Square Mound site and Turner collection. Thanks to ... , as well as the editors and reviewers for their comments and constructive criticisms, which further improved the analysis and manuscript.
