@@ -81,19 +81,19 @@ raw.matfigure <- ggarrange(raw.matmaxl, raw.matmaxw, raw.matmaxth, raw.matmaxstl
                   labels = c("a","b","c","d","e"),
                   ncol = 2, nrow = 3)
               
-# plot figure
+## plot figure
 raw.matfigure
 ```
 
 ## Principal Components Analysis
 
 ```{r pcaraw.mat, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Principal components analysis by raw material."}
-#attributes for plot
+# attributes for plot
 df<-data[c(4:8)]
 pch.gps.gp <- c(15,16)[as.factor(raw.mat)]
 col.gps.gp <- wes_palette("Moonrise2")[as.factor(raw.mat)]
 
-#pca
+## pca plot
 pca <- autoplot(prcomp(df),
                 data = data,
                 asp = 1,

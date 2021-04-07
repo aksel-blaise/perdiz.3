@@ -300,12 +300,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="symmetry-and-asymmetry-1.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># symmetric shape</span></span>
 <span id="cb67-2"><a href="symmetry-and-asymmetry-1.html#cb67-2" aria-hidden="true" tabindex="-1"></a>symm.shape <span class="ot">&lt;-</span> res.bilat<span class="sc">$</span>symm.shape[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span>
 <span id="cb67-3"><a href="symmetry-and-asymmetry-1.html#cb67-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-4"><a href="symmetry-and-asymmetry-1.html#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="co"># plot all specimens in 2D</span></span>
+<span id="cb67-4"><a href="symmetry-and-asymmetry-1.html#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="do">## plot all specimens</span></span>
 <span id="cb67-5"><a href="symmetry-and-asymmetry-1.html#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plotAllSpecimens</span>(symm.shape)</span></code></pre></div>
 <div class="figure">
-<img src="supp_files/figure-html/symm.shape-1.png" alt="Symmetric shape component plotted in 2D." width="100%" />
+<img src="supp_files/figure-html/symm.shape-1.png" alt="Symmetric shape component." width="100%" />
 <p class="caption">
-(#fig:symm.shape)Symmetric shape component plotted in 2D.
+(#fig:symm.shape)Symmetric shape component.
 </p>
 </div>
 </div>
@@ -314,12 +314,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="symmetry-and-asymmetry-1.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># asymmetric shape</span></span>
 <span id="cb68-2"><a href="symmetry-and-asymmetry-1.html#cb68-2" aria-hidden="true" tabindex="-1"></a>asymm.shape <span class="ot">&lt;-</span> res.bilat<span class="sc">$</span>FA.component[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span>
 <span id="cb68-3"><a href="symmetry-and-asymmetry-1.html#cb68-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-4"><a href="symmetry-and-asymmetry-1.html#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co"># plot all specimens in 2D</span></span>
+<span id="cb68-4"><a href="symmetry-and-asymmetry-1.html#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="do">## plot all specimens</span></span>
 <span id="cb68-5"><a href="symmetry-and-asymmetry-1.html#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plotAllSpecimens</span>(asymm.shape)</span></code></pre></div>
 <div class="figure">
-<img src="supp_files/figure-html/asymm.shape-1.png" alt="Asymmetric shape component plotted in 2D." width="100%" />
+<img src="supp_files/figure-html/asymm.shape-1.png" alt="Asymmetric shape component." width="100%" />
 <p class="caption">
-(#fig:asymm.shape)Asymmetric shape component plotted in 2D.
+(#fig:asymm.shape)Asymmetric shape component.
 </p>
 </div>
 </div>
@@ -371,7 +371,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb71-3"><a href="symmetry-and-asymmetry-1.html#cb71-3" aria-hidden="true" tabindex="-1"></a>col.gps <span class="ot">&lt;-</span> pal[<span class="fu">as.factor</span>(raw.mat)]</span>
 <span id="cb71-4"><a href="symmetry-and-asymmetry-1.html#cb71-4" aria-hidden="true" tabindex="-1"></a>col.hull <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#798E87&quot;</span>,<span class="st">&quot;#CCC591&quot;</span>)</span>
 <span id="cb71-5"><a href="symmetry-and-asymmetry-1.html#cb71-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-6"><a href="symmetry-and-asymmetry-1.html#cb71-6" aria-hidden="true" tabindex="-1"></a><span class="co"># pca.symm plot</span></span>
+<span id="cb71-6"><a href="symmetry-and-asymmetry-1.html#cb71-6" aria-hidden="true" tabindex="-1"></a><span class="do">## pca.symm plot</span></span>
 <span id="cb71-7"><a href="symmetry-and-asymmetry-1.html#cb71-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca.symm,</span>
 <span id="cb71-8"><a href="symmetry-and-asymmetry-1.html#cb71-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">asp =</span> <span class="dv">1</span>,</span>
 <span id="cb71-9"><a href="symmetry-and-asymmetry-1.html#cb71-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps,</span>
@@ -418,7 +418,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Eigenvalues            7.308699e-09 2.585122e-09 9.379995e-10
 ## Proportion of Variance 2.375070e-06 8.400735e-07 3.048168e-07
 ## Cumulative Proportion  9.999989e-01 9.999997e-01 1.000000e+00</code></pre>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="symmetry-and-asymmetry-1.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pca.asymm plot</span></span>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="symmetry-and-asymmetry-1.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="do">## pca.asymm plot</span></span>
 <span id="cb74-2"><a href="symmetry-and-asymmetry-1.html#cb74-2" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca.asymm,</span>
 <span id="cb74-3"><a href="symmetry-and-asymmetry-1.html#cb74-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">asp =</span> <span class="dv">1</span>,</span>
 <span id="cb74-4"><a href="symmetry-and-asymmetry-1.html#cb74-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps,</span>

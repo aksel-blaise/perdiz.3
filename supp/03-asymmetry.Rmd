@@ -40,21 +40,21 @@ summary(res.bilat)
 
 ### Symmetric shape
 
-```{r symm.shape, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Symmetric shape component plotted in 2D."}
+```{r symm.shape, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Symmetric shape component."}
 # symmetric shape
 symm.shape <- res.bilat$symm.shape[,1:2,]
 
-# plot all specimens in 2D
+## plot all specimens
 plotAllSpecimens(symm.shape)
 ```
 
 ### Asymmetric shape
 
-```{r asymm.shape, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Asymmetric shape component plotted in 2D."}
+```{r asymm.shape, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Asymmetric shape component."}
 # asymmetric shape
 asymm.shape <- res.bilat$FA.component[,1:2,]
 
-# plot all specimens in 2D
+## plot all specimens
 plotAllSpecimens(asymm.shape)
 ```
 
@@ -75,7 +75,7 @@ pch.gps <- c(15:17)[as.factor(raw.mat)]
 col.gps <- pal[as.factor(raw.mat)]
 col.hull <- c("#C27D38","#798E87","#CCC591")
 
-# pca.symm plot
+## pca.symm plot
 pc.plot <- plot(pca.symm,
                 asp = 1,
                 pch = pch.gps,
@@ -92,7 +92,7 @@ shapeHulls(pc.plot,
 pca.asymm <- gm.prcomp(res.bilat$FA.component)
 summary(pca.asymm)
 
-# pca.asymm plot
+## pca.asymm plot
 pc.plot <- plot(pca.asymm,
                 asp = 1,
                 pch = pch.gps,

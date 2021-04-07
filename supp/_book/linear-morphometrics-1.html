@@ -295,7 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="linear-morphometrics-1.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot figure</span></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="linear-morphometrics-1.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot figure</span></span>
 <span id="cb9-2"><a href="linear-morphometrics-1.html#cb9-2" aria-hidden="true" tabindex="-1"></a>raw.matfigure</span></code></pre></div>
 <div class="figure">
 <img src="supp_files/figure-html/boxraw.mat-1.png" alt="Boxplots for maximum length, width, thickness, stem length, and stem width for Perdiz arrow points." width="100%" />
@@ -306,12 +306,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="principal-components-analysis" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Principal Components Analysis</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="linear-morphometrics-1.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#attributes for plot</span></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="linear-morphometrics-1.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># attributes for plot</span></span>
 <span id="cb10-2"><a href="linear-morphometrics-1.html#cb10-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>data[<span class="fu">c</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">8</span>)]</span>
 <span id="cb10-3"><a href="linear-morphometrics-1.html#cb10-3" aria-hidden="true" tabindex="-1"></a>pch.gps.gp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">16</span>)[<span class="fu">as.factor</span>(raw.mat)]</span>
 <span id="cb10-4"><a href="linear-morphometrics-1.html#cb10-4" aria-hidden="true" tabindex="-1"></a>col.gps.gp <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="fu">as.factor</span>(raw.mat)]</span>
 <span id="cb10-5"><a href="linear-morphometrics-1.html#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="linear-morphometrics-1.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#pca</span></span>
+<span id="cb10-6"><a href="linear-morphometrics-1.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="do">## pca plot</span></span>
 <span id="cb10-7"><a href="linear-morphometrics-1.html#cb10-7" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">autoplot</span>(<span class="fu">prcomp</span>(df),</span>
 <span id="cb10-8"><a href="linear-morphometrics-1.html#cb10-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> data,</span>
 <span id="cb10-9"><a href="linear-morphometrics-1.html#cb10-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">asp =</span> <span class="dv">1</span>,</span>
