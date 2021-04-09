@@ -19,6 +19,7 @@ library(wesanderson)
 # read shape data and define number of sLMs
 shapes <- readShapes("shapes")
 shapesGM <- readland.shapes(shapes, nCurvePts = c(10,3,5,5,3,10))
+base <- 
 
 # read qualitative data
 qdata <- read.csv("qdata.csv",
@@ -30,7 +31,7 @@ qdata <- read.csv("qdata.csv",
 
 ```{r gpa, echo=TRUE, out.width = "100%", dpi = 300, warning=FALSE}
 # gpa
-Y.gpa <- gpagen(shapesGM, print.progress = FALSE)
+Y.gpa <- gpagen(base, print.progress = FALSE)
 
 ## plot
 plot(Y.gpa)
