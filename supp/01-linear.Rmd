@@ -39,7 +39,7 @@ raw.mat <- data$raw.mat # raw material
 # boxplot of maximum length ~ raw.mat
 raw.matmaxl <- ggplot(data, aes(x = raw.mat, y = maxl, color = raw.mat)) + 
   geom_boxplot() +
-  geom_dotplot(binaxis = 'y',stackdir = 'center',dotsize = 0.3) +
+  geom_dotplot(binaxis = 'y',stackdir = 'center',dotsize = 0.2) +
   scale_colour_manual(values = wes_palette("Moonrise2")) +
   theme(legend.position = "none") +
   labs(x = 'Raw Material', y = 'MaxL')
@@ -47,7 +47,7 @@ raw.matmaxl <- ggplot(data, aes(x = raw.mat, y = maxl, color = raw.mat)) +
 # boxplot of maximum width ~ raw.mat
 raw.matmaxw <- ggplot(data, aes(x = raw.mat, y = maxw, color = raw.mat)) + 
   geom_boxplot() +
-  geom_dotplot(binaxis = 'y',stackdir = 'center',dotsize = 0.3) +
+  geom_dotplot(binaxis = 'y',stackdir = 'center',dotsize = 0.2) +
   scale_colour_manual(values = wes_palette("Moonrise2")) +
   theme(legend.position = "none") +
   labs(x = 'Raw Material', y = 'MaxW')
@@ -55,7 +55,7 @@ raw.matmaxw <- ggplot(data, aes(x = raw.mat, y = maxw, color = raw.mat)) +
 # boxplot of maximum thickness ~ raw.mat
 raw.matmaxth <- ggplot(data, aes(x = raw.mat, y = maxth, color = raw.mat)) + 
   geom_boxplot() +
-  geom_dotplot(binaxis = 'y',stackdir = 'center',dotsize = 0.3) +
+  geom_dotplot(binaxis = 'y',stackdir = 'center',dotsize = 0.2) +
   scale_colour_manual(values = wes_palette("Moonrise2")) +
   theme(legend.position = "none") +
   labs(x = 'Raw Material', y = 'MaxTh')
@@ -63,7 +63,7 @@ raw.matmaxth <- ggplot(data, aes(x = raw.mat, y = maxth, color = raw.mat)) +
 # boxplot of stem length ~ raw.mat
 raw.matmaxstl <- ggplot(data, aes(x = raw.mat, y = maxstl, color = raw.mat)) + 
   geom_boxplot() +
-  geom_dotplot(binaxis = 'y',stackdir = 'center',dotsize = 0.3) +
+  geom_dotplot(binaxis = 'y',stackdir = 'center',dotsize = 0.2) +
   scale_colour_manual(values = wes_palette("Moonrise2")) +
   theme(legend.position = "none") +
   labs(x = 'Raw Material', y = 'StemL')
@@ -71,7 +71,7 @@ raw.matmaxstl <- ggplot(data, aes(x = raw.mat, y = maxstl, color = raw.mat)) +
 # boxplot of stem width ~ raw.mat
 raw.matmaxstw <- ggplot(data, aes(x = raw.mat, y = maxstw, color = raw.mat)) + 
   geom_boxplot() +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.2) +
   scale_colour_manual(values = wes_palette("Moonrise2")) +
   theme(legend.position = "none") +
   labs(x = 'Raw Material', y = 'StemW')
@@ -90,7 +90,7 @@ raw.matfigure
 ```{r pcaraw.mat, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Principal components analysis by raw material."}
 # attributes for plot
 df<-data[c(4:8)]
-pch.gps.gp <- c(15,16)[as.factor(raw.mat)]
+pch.gps.gp <- c(15:18)[as.factor(raw.mat)]
 col.gps.gp <- wes_palette("Moonrise2")[as.factor(raw.mat)]
 
 ## pca plot
@@ -119,9 +119,9 @@ ggMarginal(pca, groupColour = TRUE)
 ```{r anovaraw.matmaxl, out.width = "100%", dpi = 300, echo=TRUE}
 # anova = maximum length ~ raw.mat
 raw.matml <- lm.rrpp(maxl ~ raw.mat, 
-                  SS.type = "I", 
-                  data = data, iter = 9999, 
-                  print.progress = FALSE)
+                     SS.type = "I", 
+                     data = data, iter = 9999, 
+                     print.progress = FALSE)
 anova(raw.matml)
 ```
 
@@ -130,23 +130,37 @@ anova(raw.matml)
 ```{r anovaraw.matmaxw, out.width = "100%", dpi = 300, echo=TRUE}
 # anova = maximum width ~ raw.mat
 raw.matmw <- lm.rrpp(maxw ~ raw.mat, 
-                  SS.type = "I", 
-                  data = data, 
-                  iter = 9999, 
-                  print.progress = FALSE)
+                     SS.type = "I", 
+                     data = data, 
+                     iter = 9999, 
+                     print.progress = FALSE)
 anova(raw.matmw)
+
+# pairwise comparison of LS means = which differ?
+maxw.rm <- pairwise(raw.matmw, 
+                    groups = data$raw.mat)
+summary(maxw.rm, 
+        confidence = 0.95, 
+        test.type = "dist")
 ```
 
 ### _Maximum thickness_ of Perdiz arrow points
 
 ```{r anovaraw.matmaxth, out.width = "100%", dpi = 300, echo=TRUE}
 # anova = maximum thickness ~ raw.mat
-raw.matmth <- lm.rrpp(maxth ~ raw.mat, 
-                   SS.type = "I", 
-                   data = data, 
-                   iter = 9999, 
-                   print.progress = FALSE)
-anova(raw.matmth)
+raw.maxth <- lm.rrpp(maxth ~ raw.mat, 
+                     SS.type = "I", 
+                     data = data, 
+                     iter = 9999, 
+                     print.progress = FALSE)
+anova(raw.maxth)
+
+# pairwise comparison of LS means = which differ?
+maxth.rm <- pairwise(raw.maxth, 
+                     groups = data$raw.mat)
+summary(maxth.rm, 
+        confidence = 0.95, 
+        test.type = "dist")
 ```
 
 ### _Maximum stem length_ of Perdiz arrow points
@@ -154,10 +168,10 @@ anova(raw.matmth)
 ```{r anovaraw.matmaxstl, out.width = "100%", dpi = 300, echo=TRUE}
 # anova = maximum stem length ~ raw.mat
 raw.matmstl <- lm.rrpp(maxstl ~ raw.mat, 
-                    SS.type = "I", 
-                    data = data, 
-                    iter = 9999, 
-                    print.progress = FALSE)
+                       SS.type = "I", 
+                       data = data, 
+                       iter = 9999, 
+                       print.progress = FALSE)
 anova(raw.matmstl)
 ```
 
@@ -165,10 +179,17 @@ anova(raw.matmstl)
 
 ```{r anovaraw.matmaxstw, out.width = "100%", dpi = 300, echo=TRUE}
 # anova = maximum stem width ~ raw.mat
-raw.matmstw <- lm.rrpp(maxstw ~ raw.mat, 
-                    SS.type = "I", 
-                    data = data, 
-                    iter = 9999, 
-                    print.progress = FALSE)
-anova(raw.matmstw)
+raw.maxstw <- lm.rrpp(maxstw ~ raw.mat, 
+                      SS.type = "I", 
+                      data = data, 
+                      iter = 9999, 
+                      print.progress = FALSE)
+anova(raw.maxstw)
+
+# pairwise comparison of LS means = which differ?
+maxstw.rm <- pairwise(raw.maxstw,
+                      groups = data$raw.mat)
+summary(maxstw.rm, 
+        confidence = 0.95, 
+        test.type = "dist")
 ```
